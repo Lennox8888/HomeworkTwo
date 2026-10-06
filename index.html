@@ -7,12 +7,50 @@
 
   <body>
     <a-scene>
-  <a-sky color=skyblue></a-sky>
+      <a-assets>
+        <img id="grass-base" src="assets\Concrete_Wall_014_basecolor.png">
+        <img id="grass-ambient-occlusion" src="assets\Concrete_Wall_014_ambientOcclusion.png">
+        <img id="grass-normal" src="assets\Concrete_Wall_014_normal.png">
+     <img id="sky" src="assets\sky.jpg">
+     <a-asset-item
+    id="chair"
+    src="assets\chair.glb">
+  </a-asset-item> 
+     <a-asset-item
+      id="court"
+      src="assets\court.glb">
+    </a-asset-item>
+        <a-asset-item
+      id="energy"
+      src="assets\energy.glb">
+    </a-asset-item>
+        <a-asset-item
+      id="ball"
+      src="assets\ball.glb">
+    </a-asset-item>
+<a-asset-item
+      id="charater"
+      src="assets\charater.glb">
+    </a-asset-item>
+      </a-assets>
+  <a-sky 
+              Src="#sky"
+              > 
+              </a-sky>
+    <a-entity gltf-model="#chair"
+    position="-4 0 -2"
+    rotation="0 0 0"
+    scale="2 2 2">
+  </a-entity>
       <a-plane
-        rotation="-90 0 0"
-        width="30"
-        height="30"
-        color=gray>
+      material="src: #grass-base; repeat: 500 500;
+       ambientOcclusionMap: #grass-ambient-occlusion; 
+       ambientOcclusionTextureRepeat: 500 500; normalMap: #grass-normal; 
+       normalTextureRepeat: 5 5 
+       position="0 1 0"
+       rotation="-90 0 0" 
+       width="500"
+       height="500">
       </a-plane>
 
       <a-cylinder
@@ -45,13 +83,30 @@
         rotation=" 0 0"
         color=red>
     </a-cylinder>
-    <a-sphere
-        position="0.7 .42 1"
-        radius=".42"
-        height="5"
-        rotation=" 0 0"
-        color=darkorange>  
-    </a-sphere>
+   <a-entity
+    gltf-model="#court"
+    position="0 0 7"
+    rotation="0 90 0"
+    scale="1 1 1">
+  </a-entity>
+    <a-entity
+    gltf-model="#energy"
+    position="-15 2 1"
+    rotation="0 -45 0"
+    scale="1 1 1">
+  </a-entity>
+    <a-entity
+    gltf-model="#ball"
+    position="0.7 .42 1"
+    rotation="0 45 0"
+    scale="2 2 2">
+  </a-entity>
+  <a-entity
+    gltf-model="#charater"
+    position="0 0 0"
+    rotation="0 45 0"
+    scale="1.5 1.5 1.5">
+  </a-entity>
     <a-cone
     position="0 2.88 0.38"
         radius-top="0.13"
